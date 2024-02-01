@@ -1,17 +1,24 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-NAME = ft_isalpha.c ft_isdigit.c ft_isalnum.c
-
+SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c
+OBJECTS = $(SOURCE:.c=.o)
 LIBNAME = libft.a
 
+
 all: $(LIBNAME)
+ 
+$(LIBNAME): $(OBJECTS)
+	ar -rcs $(LIBNAME) $(OBJECTS)
 
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
-$(LIBNAME): $(OBJECTS) libft.h
-	$(CC) $(FLAGS) $(OBJECTS) -o all
+clean:
+	rm -f $(OBJECTS)
 
-$(OBJECTS): $(NAME)
-	$(CC) $(FLAGS) -c $(NAME)
+fclean: clean
+	rm -rf $(LIBNAME)
 
-clear:
-	rm $(OBJECTS) all
+re: fclean all
+
+.PHONY: all clean fclean re $(LIBNAME)

@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 int ft_isalnum(int c)
 {
@@ -7,11 +6,4 @@ int ft_isalnum(int c)
         return (1);
     else
         return (0);
-}
-
-
-int main()
-{
-    printf("%d", ft_isalnum('`'));
-    return 0;
 }
