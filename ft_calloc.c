@@ -6,7 +6,7 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:20:55 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/11 12:22:08 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:38:20 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_calloc(size_t count, size_t size)
 		count = 1;
 		size = 1;
 	}
-	if (count * size > SIZE_MAX)
+	if (size > 65535 || count > 65535)
 		return (NULL);
 	m = (void *)malloc(count * size);
 	if (!m)

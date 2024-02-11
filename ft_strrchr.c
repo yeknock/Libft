@@ -6,7 +6,7 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:19:04 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/01 17:20:02 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:45:15 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *str, int c)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	while (i >= 0 && str[i] != c)
+	while (i >= 0 && str[i] != (char)c)
 		i--;
 	if (i < 0)
 		return ((char *) 0);

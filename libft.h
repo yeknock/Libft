@@ -6,7 +6,7 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:47:38 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/11 16:23:23 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:27:52 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+char	*ft_strdup(const char *str);
 void	*ft_memset(void *b, int c, size_t length);
 void	ft_bzero(void *b, size_t length);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
