@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:05:53 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/02 16:08:53 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/02/01 17:02:46 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/02 17:21:16 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*d;
-	char	*s;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst <= src)
+	str1 = s1;
+	str2 = s2;
+	while (n-- > 0)
 	{
-		while (len--)
-			*d++ = *s++;
+		if (*str1 > *str2)
+			return (*str1 - *str2);
+		else if (*str2 > *str1)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
 	}
-	else if (dst > src)
-	{
-		d += len - 1;
-		s += len - 1;
-		while (len--)
-			*d-- = *s--;
-	}
-	return (dst);
+	return (0);
 }

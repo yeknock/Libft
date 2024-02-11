@@ -1,10 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:55:41 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/01 16:57:58 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
-void ft_bzero(void* b, size_t length)
+void	ft_bzero(void *b, size_t length)
 {
-    unsigned char* s = b;
-    while (length-- > 0)
-    {
-        *s++ = 0;
-    }
+	unsigned char	*s;
+
+	s = b;
+	while (length-- > 0)
+	{
+		*s++ = 0;
+	}
 }

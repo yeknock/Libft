@@ -1,28 +1,30 @@
-#include <stddef.h>
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/02 17:22:34 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/11 18:07:25 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// size_t ft_strlcpy(char* dst, const char* src, size_t dst_size)
-// {
-//     int i;
+#include "libft.h"
 
-//     i = 0;
-//     while (i < dst_size)
-//     {
-//         dst[i] = src[i];
-//         i++;
-//     }
-//     dst[i] = '\0';
-// }
-
-
-
-int main()
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
-    char a[] = "Hello world";
-    char dst[20];
-    int f = strlcpy(a, dst, 15);
-    printf("%d",f); 
+	size_t	i;
 
-    return 0;
+	i = 0;
+	if (dst_size != 0)
+	{
+		while (i < dst_size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }

@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:05:53 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/02 16:08:53 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/02/01 17:01:15 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/01 17:02:37 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*d;
-	char	*s;
+	const unsigned char	*str;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst <= src)
+	str = s;
+	while (n-- > 0)
 	{
-		while (len--)
-			*d++ = *s++;
+		if (*str == (unsigned char)c)
+			return ((void *)str);
+		str++;
 	}
-	else if (dst > src)
-	{
-		d += len - 1;
-		s += len - 1;
-		while (len--)
-			*d-- = *s--;
-	}
-	return (dst);
+	return (NULL);
 }

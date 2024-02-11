@@ -1,11 +1,27 @@
-char* ft_strchr(const char* str, int c)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 17:12:46 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/02 17:20:45 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    while (str[i] != '\0' && str[i] != c)
-        i++;
-    if (str[i] == '\0')
-        return ((char *) 0);
-    return ((char *)(str + i));
+char	*ft_strchr(const char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == 0)
+		return ((char *)str);
+	return ((char *) 0);
 }

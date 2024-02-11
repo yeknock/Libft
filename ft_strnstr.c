@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:05:53 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/02 16:08:53 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/02/01 15:24:07 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/11 16:40:28 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*d;
-	char	*s;
+	size_t	i;
+	size_t	big_size;
+	size_t	little_size;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst <= src)
+	little_size = ft_strlen(little);
+	if (little_size == 0)
+		return ((char *) big);
+	if (len == 0)
+		return (0);
+	big_size = ft_strlen(big);
+	i = 0;
+	while ((little_size + i) <= len && i < big_size)
 	{
-		while (len--)
-			*d++ = *s++;
+		if (ft_strncmp(big + i, little, little_size) == 0)
+			return ((char *)(big + i));
+		i++;
 	}
-	else if (dst > src)
-	{
-		d += len - 1;
-		s += len - 1;
-		while (len--)
-			*d-- = *s--;
-	}
-	return (dst);
+	return (0);
 }

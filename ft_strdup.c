@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:05:53 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/02 16:08:53 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/02/02 12:40:27 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/02 12:41:45 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(char *str)
 {
-	char	*d;
-	char	*s;
+	char	*ptr;
+	int		i;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	ptr = (char *)malloc(sizeof(char) * (i + 1));
+	if (ptr == NULL)
 		return (NULL);
-	if (dst <= src)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		while (len--)
-			*d++ = *s++;
+		ptr[i] = str[i];
+		i++;
 	}
-	else if (dst > src)
-	{
-		d += len - 1;
-		s += len - 1;
-		while (len--)
-			*d-- = *s--;
-	}
-	return (dst);
+	ptr[i] = '\0';
+	return (ptr);
 }
