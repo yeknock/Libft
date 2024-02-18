@@ -9,9 +9,8 @@
 /*   Updated: 2024/02/11 13:23:23 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <string.h>
-#include <stdio.h>
+
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
