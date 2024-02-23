@@ -6,10 +6,9 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:23:25 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/02 14:57:43 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/02/18 21:00:19 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 int	ft_atoi(const char *str)

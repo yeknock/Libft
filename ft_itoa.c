@@ -1,7 +1,18 @@
-#include "libft.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/18 21:06:23 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/02/20 21:26:55 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static	int		int_len(int n)
+#include "libft.h"
+
+static	int	int_len(int n)
 {
 	size_t	i;
 
@@ -10,7 +21,7 @@ static	int		int_len(int n)
 		return (1);
 	if (n < 0)
 	{
-		i = 1;
+		i++;
 		while (n)
 		{
 			i++;
@@ -31,25 +42,20 @@ static	char	*fill_str(char *str, int n)
 	int	i;
 
 	i = int_len(n);
-	str[i + 1] = '\0';
+	str[i] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
 		n = n * (-1);
-		while (--i > 0)
-		{
-			str[i] = (n % 10) + 48;
-			n = n / 10;
-		}
 	}
-	while (i-- >= 0)
+	while (i > 0 && n)
 	{
-		str[i] = (n % 10) + 48;
+		str[i - 1] = (n % 10) + 48;
 		n = n / 10;
+		i--;
 	}
 	return (str);
 }
-
 
 char	*ft_itoa(int n)
 {
@@ -57,7 +63,11 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = int_len(n);
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	str = (char *)malloc(i + 1);
 	if (!str)
 		return (0);
 	fill_str(str, n);

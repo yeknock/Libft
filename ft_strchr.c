@@ -6,7 +6,7 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:12:46 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/02/11 20:44:32 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/02/18 21:09:05 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 char	*ft_strchr(const char *str, int c)
 {
+	int	i;
+
+	i = 0;
 	while (*str)
 	{
 		if (*str == (char)c)
