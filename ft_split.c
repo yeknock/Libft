@@ -42,7 +42,7 @@ static	void	matrix_free(char **matrix)
 		free(matrix[i]);
 		i++;
 	}
-	free(matrix[i]);
+	free(matrix);
 }
 
 static	void	modified_matrix(char **matrix, char const *s, char c)
